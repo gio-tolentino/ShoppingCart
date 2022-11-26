@@ -1,8 +1,4 @@
-<?php
-    session_start();
-    require_once('dataset.php');  
-?>
-
+<?php session_start(); session_destroy(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,41 +19,13 @@
             <div class="col-2 text-right">
                 <a href="cart.php" class="btn btn-primary">
                     <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">                        
-                        <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
-                    </span>
+                    <span class="badge badge-light">0</span>
                 </a>
             </div>            
         </div>
         <hr>
-
-        <div class="row">
-            <?php if(isset($arrProducts)): ?>
-                <?php foreach($arrProducts as $key => $product): ?>
-                    <div class="col-md-3 col-sm-6 mb-4">
-                        <div class="product-grid2 card">
-                            <div class="product-image2">
-                                <a href="details.php?k=<?php echo $key; ?>">
-                                    <img class="pic-1" src="img/<?php echo $product['photo1']; ?>">
-                                    <img class="pic-2" src="img/<?php echo $product['photo2']; ?>">
-                                </a>                        
-                                <a class="add-to-cart" href="details.php?k=<?php echo $key; ?>"><i class="fa fa-cart-plus"></i> Add to cart</a>
-                            </div>
-                            <div class="product-content">
-                                <h3 class="title">
-                                    <?php echo $product['name']; ?>
-                                    <span class="badge badge-dark">₱ <?php echo $product['price']; ?></span>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="col-12 card p-5">
-                    <h3 class="text-center text-danger">No Product Found!</h3>
-                </div>
-            <?php endif; ?>
-        </div>
+        <h3>Online Shopping is Successful!</h3>
+        <a href="index.php" class="btn btn-danger btn-lg"><i class="fa fa-shopping-bag"></i> Continue</a>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
